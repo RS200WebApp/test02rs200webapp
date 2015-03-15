@@ -1,0 +1,59 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/default.css" type="text/css" />
+    <title> RS200匹企画webアプリ </title>
+    </head>
+
+    <body>
+
+<h1> RS200匹企画　進捗管理Webアプリ </h1>
+<h2> 最新の捕獲状況 </h2>
+<table class="sample_01">
+<tbody>
+<tr>
+<th class="araki">あらきゴマゾウズ</th>
+<th class="hiraiwa">ひらいわカクレオンズ</th>
+<th class="yamasho">やましょーピカチュウズ</th>
+<th class="matsunaga">まつなてヘイガニズ</th>
+</tr>
+<tr>
+<td>{{araki_get_num}}</td>
+<td>{{hiraiwa_get_num}}</td>
+<td>{{yamasho_get_num}}</td>
+<td>{{matsunaga_get_num}}</td>
+</tr>
+</tbody>
+</table>
+<a href=/get>詳細な捕獲一覧表を見る</a>
+
+<h2> 直近の捕獲状況 </h2>
+<table class="sample_02">
+<tbody>
+<tr>
+<th>チーム
+<th>ポケモン
+<th>登録時刻
+{% for upcoming in upcomings %}
+<tr class={{upcoming.team}}>
+<td>{% if upcoming.team == 'araki' %}あらきゴマゾウズ
+{% elif upcoming.team == 'hiraiwa' %}ひらいわカクレオンズ
+{% elif upcoming.team == 'yamasho' %}やましょーピカチュウズ
+{% elif upcoming.team == 'matsunaga' %}まつながヘイガニズ
+{% endif %}
+</td>
+<td>{{upcoming.name}}</td>
+<td>{% if upcoming.date.hour<15 %}
+{{upcoming.date.hour + 9}}
+{% else %}
+{{upcoming.date.hour - 15}}
+{% endif %}
+: {{upcoming.date.minute}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>        
+</body>
+
+
+</html>

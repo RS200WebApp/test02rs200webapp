@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/default_get.css" type="text/css" />
+    <title> RS200匹企画webアプリ </title>
+    </head>
+
+    <body>
+
+<h1> RS200匹企画　進捗管理Webアプリ </h1>
+<a href=../>トップページに戻る</a>
+<table class="sample_01">
+<tbody>
+<tr>
+<th class="pokemon">ポケモン</th>
+<th class="araki">あらき<br />ゴマゾウズ</th>
+<th class="hiraiwa">ひらいわ<br />カクレオンズ</th>
+<th class="yamasho">やましょー<br />ピカチュウズ</th>
+<th class="matsunaga">まつなて<br />ヘイガニズ</th>
+</tr>
+{% for pokemon, araki_date, hiraiwa_date, yamasho_date, matsunaga_date in allpokedate %}
+<tr>
+<td>{{pokemon}}</td>
+{% if araki_date %}<td class="araki">
+{% else %}<td>
+{% endif %}
+{{araki_date}}</td>
+{% if hiraiwa_date %}<td class="hiraiwa">
+{% else %}<td>
+{% endif %}
+{{hiraiwa_date}}</td>
+{% if yamasho_date %}<td class="yamasho">
+{% else %}<td>
+{% endif %}
+{{yamasho_date}}</td>
+{% if matsunaga_date %}<td class="matsunaga">
+{% else %}<td>
+{% endif %}
+{{matsunaga_date}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>    
+<a href=../>トップページに戻る</a>    
+</body>
+
+
+</html>

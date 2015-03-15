@@ -1,0 +1,35 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/default_register.css" type="text/css" />
+    <title> RS200匹企画webアプリ </title>
+    </head>
+    <body>
+    {% if team == 'araki' %}
+    <h2 class="araki">あらきゴマゾウズ登録画面</h2><hr />
+    {% elif team == 'hiraiwa' %}
+    <h2 class="hiraiwa">ひらいわカクレオンズ登録画面</h2><hr />
+    {% elif team == 'yamasho' %}
+    <h2 class="yamasho">やましょーピカチュウズ登録画面</h2><hr />
+    {% elif team == 'matsunaga' %}
+    <h2 class="matsunaga">まつなてヘイガニズ登録画面</h2><hr />
+    {% endif %}
+        {% if name %}
+            {{name}}の捕獲を登録しました。<br />
+            <hr />
+        {% endif %}
+        {% if delname %}
+            {{delname}}を削除しました。<br />
+            <hr />
+        {% endif %}        
+        <form action="/{{pass}}" method="POST">
+        やること:
+        <input type="radio" name="mode" value="hokaku" checked/> 登録
+        <input type="radio" name="mode" value="sakujo" /> 削除
+        <br />
+        ポケモン: <input name="name" type="text" /><br />
+        <input type="hidden" name="team" value="{{team}}">
+        <button type="submit">Save</button>
+        </form>
+    </body>
+</html>
