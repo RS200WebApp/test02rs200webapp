@@ -1,2 +1,2 @@
 # test02rs200webapp
-Test of RS200WebApp: ver01
+Test of RS200WebApp: ver02
